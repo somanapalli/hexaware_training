@@ -537,19 +537,58 @@ to software development, helping teams manage and control
 te entire process effectively.
 
 
+1.waterfall model
+2.Iterative model
+3.Incremental model
+4.V-Model(Verification and Validation Model)
+5.Spiral Model
+6.Agile Model
+
+   Agile is an iterative and incremental model that 
+   emphasizes flexibility and customer feedback.
+   sprint
+   dev -> qa -> devops team -> db team ->
+
+scrum
 
 
 
+agile model / agile methodology/ agile process:
+
+
+It is an iterative and incremental approach/process.
+
+
+Agile principles:
+
+1) Customer no need to wait for long time.
+2) We develop,test and release piece of software to the customer with few no.of 
+   features.
+3) we can accept/accomodate requirement changes.
+
+There will be good communication between  Customer,Business Analyst,Developer 
+and Tester.
+
+Advantages:
+
+Requirement changes are allowed in any stage of development or we can accomodate
+requirement changes in the middel of the development.
+
+Releases will be very fast(weekly)
+
+Customer no need to wait for long time .
+
+Good communcation betweeen team.
+
+It is very easy model to adopt.
+
+
+Disadvantge:
+less focus on design and documentation since we diliver software very faster.
 
 
 
-
-
-
-
-
-
-
+srcum:
 
 
 
