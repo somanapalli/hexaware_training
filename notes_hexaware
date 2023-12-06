@@ -1,0 +1,571 @@
+algorithm:
+
+An algorithm is a step-by-step set of instructions
+or rules to perform a specific task or solve a 
+particular problem.
+
+
+
+how to write the algorithm:
+
+algorithm swap(a,b)
+{
+  temp=a;-1
+  a=b;-1
+  b=temp;-1
+}
+f(n)=3
+s(n)=3
+
+how to analyze an algorithm:
+
+  1.time 
+  2.space
+  3.n/w consumption
+  4.power consumption
+  5.cpu registors
+  
+
+O notation
+
+O(n)
+o(n2)
+
+
+
+8 3 9 7 2
+
+algorithm sum(A,n)
+{
+   s=0;                      1
+   for(i=0;i<n;i++)          
+   {
+     s=s+A[i];
+   
+   
+   }
+   return s;
+}
+
+A -n
+n- 1
+s - 1
+i -1
+
+s(n)=n+3
+f(n)=2n+3
+
+algorithmic paradigms:
+```````````````````````
+
+The word paradigm means ' pattern of thought'.
+
+Brute force
+
+divide and conquer
+
+greedy
+
+dynamic programing
+
+note:
+these  paradigms define the general structure of 
+how the solution would look like.
+
+
+Brute Forece:
+
+The beauty of a brute force method is that it is pretty 
+straightforward and if a solution to a problem exists, 
+you are guaranteed to find it. 
+
+This option is also the most exhasustive option as we might 
+go through all the possibilities before arriving at the result.
+
+
+what is brute force method?
+
+Greedy algorithm:
+
+Greedy algorithm is a paradigm that describes the approach on how 
+you can go about solving a problem.
+
+making the choice that seems best at that point of time.
+
+
+datastructure basics:
+
+array
+stack
+linkedlist
+queue
+
+
+Array:
+```````
+An array is a linear data structure that is capable of holding values 
+that are of a similar type.
+
+arr = 4 8 15 16 23 42
+
+int[] x={4,8,15,16,23,42}
+
+x[0]
+x[1]
+x[2]
+if the array size is n-
+maximum index is n-1
+
+int[] physics={}
+int[] chemistry={}
+int[] biology ={}
+
+
+  int x[]={20,30,40};
+    3
+	2
+	
+x[3]=50;
+
+
+
+Linkedlist:
+````````````
+Linked List is a data structure that is really helpful to write memory 
+efficient and fast programs. 
+
+A linked list consists of list nodes. 
+
+Each list node has a value and the address to the next node. 
+
+This chain of nodes is often called as a linked list. 
+
+
+struct node{
+
+
+   //this is the data type that we want ti stire
+   int data;
+   //a pointer to the next node, same type
+   struct node*next;
+
+}
+
+list = list -> next
+
+how to traversing a linked list?
+
+
+stack:
+
+push:
+in this operation, we add an element on top 
+of the previous element such that the new element 
+is now the top element. 
+similar to adding a new plate on top of the existing plates.
+
+pop:
+this is the deletion operation,
+
+push(): add a new element
+pop(): remove an element 
+
+peek()/top(): 
+
+isEmpty():
+isFull():
+
+
+100
+  90
+  
+isFull() -> false
+
+
+Queue:
+A queue is a linear data structure that stores 
+data (similar to linkedlists and stacks)
+in a queue, the oeder in which the data arrives is important.
+
+A queue is an ordered list in which insertions are doen at one end(rear)
+and deletions are done at other end(front)
+
+The first element that you insert, is the first one that is removed. 
+
+Queue: First in First out(FIFO)
+
+
+Insertion sort:
+
+2,4,6,3,10,k,j
+
+
+2,3,4,6,10,k,j
+
+
+2,3,4,6,10,j,k
+
+algorithm:
+1.start scanning the elements from 2nd position. 
+2.if(arr[i]<arr[i-1])
+  1.swap arr[i] and arr[i-1]
+  2.keep swapping until the number is less than the previous number.
+  
+3.The array gets sorted as we reach the end.
+
+ 
+
+i=4;
+key = 7
+j = 4-1=3
+
+
+[2,5,9,3,7,4,11,13]
+
+2,5,3,9,7,4,11,13
+
+2,3,5,9,7,4,11,13
+2,3,5,7,9,4,11,13
+
+/*function to sort array using insertion sort*/
+
+void sort(int arr[])
+{
+
+   int n = arr.length; //8
+   for(int i=1;i<n;++i){
+     int key = arr[i];
+	 int j = i-1;
+	 
+	 while(j>=0 && arr[j] > key){
+	    arr[j+1]=arr[j];
+		j=j-1;
+	 }
+   
+   arr[j+1] = key;
+   }
+
+}
+
+Bubble Sort:
+`````````````
+
+Bubble sort is one of the techniques which can be used 
+to arrange a set of elements in a certain pre-defined 
+manner. 
+
+As the name suggests, at every iteration, the largest 
+elements bubbles towards the end.
+
+
+principle of swapping two elements.
+
+algorithm:
+
+we start from the bottom of the array 
+and look for smaller elements.
+
+select the last element
+
+if the second last element is greater than the selected number, 
+swap both of them.
+
+Now compare the second last number with the third last number.
+if the number is not small, then do not swap, else again swap.
+
+This way by swapping each time, we will get the smallest 
+number in the array and it will bubble at the top of the array
+
+[5,6,9,4,8,2]
+
+void bubbleSort(int arr[])
+{
+  int n =  arr.length;
+  for(int i=0;i<n-1;i++)
+  {
+    for(int j=0;j<n-i-1;j++){
+	  if(arr[j]> arr[j+1]){
+	  //swap arr[j+1] and arr[j]
+	  int temp= arr[j];
+	  arr[j]=arr[j+1];
+	  arr[j+1]=temp;
+	  }
+ }
+ 
+merge sort
+selection sort
+
+
+linear search:
+
+[13,0,8,15,1,6,2,7,21,3,4,9,5]
+
+Number to search = 7,25
+
+
+1.start from the first element.
+2.check if it matches the target element.
+3.if yes, we found the element
+4.else, move ahead and check again
+5.Repeat the above process till you reach the end of the array.
+
+public static boolean linearSearch(int[] arr,int numberToSearch){
+
+    boolean found = false;
+	
+	//search sequentially through each element
+	
+	for(int i=0;i<arr.length;i++){
+	
+	    if(arr[i] == numberToSearch){
+		   found=true;
+		   break;
+		}
+	   
+	}
+	
+	return found;
+	}
+	
+sorted linear search:
+`````````````````````
+[0,1,2,3,4,5,7,8,13,15,21,30,99]
+
+6
+
+
+public static boolean linearSearch(int[] arr,int numberToSearch){
+
+    boolean found = false;
+	
+	//search sequentially through each element
+	
+	for(int i=0;i<arr.length;i++){
+	
+	    if(arr[i] == numberToSearch){
+		   found=true;
+		  
+		   if(arr[i] > numberToSearch)
+		   break;
+		}
+	   
+	}
+	
+	return found;
+	}
+	
+
+
+Binary Search:
+It is one of the most important search algorithm in computer programming.
+
+As the name suggests, binary means 2, it involes bisecting the array in 2 halves
+ at every step to ultimately narrow down our search space.
+ 
+ The only restriction is that the list should be sorted.
+ 
+
+
+working of binary search:
+
+
+numberToSearch = 12
+
+  [1,3,4,6,7,9,10,12,13,15,16,19,20,23,24,27,2,31]
+  
+
+algorithm:
+
+1.set the start position as begininig of array.
+
+2.set the end position as the end of array.
+
+3.start a loop
+
+4.check the middle eleement. if it matches , we found our result.
+
+5.if (middle element > number to search), update the end position to middle
+
+6.else , update the first position 
+
+7.Repeat steps 4-6 until we find our element, or exhaust out of options.
+
+
+static boolean binarySearch(int[] arr, int numberToSearch)
+{
+
+ int left = 0;
+ int right = arr.length-1;
+ 
+ while(left < = right){
+ 
+   //find the mid index
+   int mid = (left + right) / 2
+ 
+   //check at mid index
+   if(arr[mid]==numberToSearch)
+   return true;
+   //update the terminal indices
+   
+   if(arr[mid] <numberToSearch){
+      left = mid + 1;
+   
+   }
+   else
+   right= mid-1;
+ 
+ }
+
+  return false;
+
+}
+
+
+some factors are considered for choosing the datastructure:
+
+what type of data needs to be stored?
+cost of operations
+memory usage
+
+
+A tree is also one of the data structure that represent hierarchal data. 
+
+
+
+public static void main(String[] args)
+{
+
+TreeNode root = new TreeNode(4);
+root.left = new TreeNode(8);
+root.right = new TreeNOde(15);
+
+TreeNode leftNode = root.left;
+TreeNode rightNode = root.right;
+
+leftNode.left = new TreeNode(16);
+
+rightNode.left=new TreeNode(23);
+rightNOde.right = new TreeNode(42);
+
+
+System.out.println(root.val);
+System.out.println(root.right.left.val);
+}
+
+
+
+IN - ORDER - TRAVERSAL:
+```````````````````````
+
+
+  LEFT ->VALUE -> RIGHT
+  
+     2
+	 
+  8     4
+  
+3   7      1
+
+        6
+
+
+LEFT           > VALUE                 > RIGHT
+
+ 8
+3 7               2                       4  
+                                            1
+L V R
+3 8 7							              6
+										  
+										  
+                                          L  V  R
+										  
+                                             4   1
+											    6
+												
+												L V R
+												6 1 
+
+3,8,7,2,4,6,1
+
+
+
+public static void inOrderTraversal(TreeNOde root){
+
+   if(root == null)
+   return;
+   inOrderTraversal(root.left);
+   System.out.println(root.val = " ->");
+   inOrderTraversal(root.right);
+   
+}
+
+pre-order-traversal:
+value->left->right
+post-order-traversal:
+left ->right -> value
+
+
+SDLC:
+`````
+
+Software Development Life Cycle
+
+It is a systematic process for planning , creating, testing, deploying 
+and maintaining software.
+
+it consists of various phases, each serving a specific purpose in the 
+development process. 
+
+1.Requirements Gathering and Analysis
+
+2.Planning
+
+3.Design
+
+4.implementation (coding)
+
+5.Testing
+
+6.Deployment
+
+7.Maintainence and Support
+
+
+Each phase is interconnected and the SDLC provides a structured approach
+to software development, helping teams manage and control 
+te entire process effectively.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
