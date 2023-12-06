@@ -587,16 +587,104 @@ Disadvantge:
 less focus on design and documentation since we diliver software very faster.
 
 
+scrum:
+``````
+scrum is a framework through whihc we build software product by following 
+Agile principles.
 
-srcum:
+Scrum includes group of people called as scrum team.
+
+Normally contains 5 to 9 members.
 
 
+1)Product Owner
+
+2)Scrum Master
+
+3)Dev Team 
+
+4)QA team
 
 
+Product owner:
+``````````````
+Define the features of the product.
+
+Prioritize features according to market value.
+
+Adjust features and priority every iteration, as needed
+
+Accept or reject work results.
 
 
+Scrum Master:
+The main role is facilitating and driving the agile process.
+
+and servant-leader responsible for ensuring the scrum team 
+adheres to agile principples and follows the scrum framework.
+ 
+ They help remove obstacles, faster collaboration and 
+ enable continuious improvement within the team .
+ 
+ 
+Developers and QA:
+
+  Develop and Test the software 
+  
+  
+scrum terminilogy:
+``````````````````
+user story:
+
+A feature /module in a software.
+
+Epic:
+collection of user stories.
+
+product backlog:
+contains list of user stories. prepared by product owner.
+
+sprint/iteration:
+period of time to complete the user stories, decided by the product owner 
+and team, usually 2-4 weeks of time.
+
+sprint planning meeting:
+Metting conducts with the team to define what can be delivered in the sprint
+and duration.
+
+sprint backlog:
+List of commited stories by Dev/QA for specific sprint.
+
+Scrum meeting:
+meeting conducted by scrum master everyday 15 mnts. called as 
+scrum call /standup meeting.
+
+-what did you do yesterday?
+-what will you do today?
+-Are there any impediments in your way?
 
 
+sprint retrospective meeting:
+
+
+conducts meeting after completion of sprint.
+The entire team including both the Scrummaster and the product owner 
+should participate.
+
+
+story point:
+
+Rough estimation of user stories, will be given by Dev & QA 
+in the form of fibonacci series.
+
+0 1 1 2 3 5 8 13... 
+
+login - dev - 5 qa -3(8hrs)
+
+
+Burndown chart:
+shows how much work remaining in the sprint.
+Maintained by the scrum master daily.
 
 
 
