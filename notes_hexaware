@@ -686,6 +686,217 @@ Burndown chart:
 shows how much work remaining in the sprint.
 Maintained by the scrum master daily.
 
+JIRA
+
+TRELLO
+
+Trello is a popular project management tool 
+that uses a visual approach to help teams organize 
+and manage their work. 
+It utilizes boards,lists,and cards to represnt projects and tasks.
+
+Users can create tasks on cards, move them between lists to track progress, 
+and collaborate with team members.
+
+
+
+
+
+Book 
+  Each Book can have multiple authors, and 
+  each author can write multiple books
+  
+
+Author
+ AuthorId
+ AuthorName
+ BookPointer1,
+ BookPointer2..
+ 
+ 
+Book
+  BookId,
+  Title
+  AuthorPointer1,
+  ...
+  
+Author
+[1,"jane Doe",101,102]
+Book
+[101,"The Adventure",1,2]
+[102,"Mystery Unveiled",1]
+
+
+
+Students table
+
+ StudentId
+ Name
+ Email
+ 
+ {studentId}
+ {Name}
+ {Email}
+ {studentId,Name}
+ {studentId,Email}
+ 
+
+Candidate key:
+
+A candidate key is a minimal super key
+
+it is a super key with fewest possible columns.
+
+
+
+{StudentId},{Email}
+
+
+
+Normalization:
+A relation will be in 1nf if it contains an atomic values.
+
+it states that an attribute of a table cannot hold multiple values.
+It must hold only single valued attribute.
+
+First normal form disallow the multi valued attributes.
+
+Relation student is not in 1nf because of multivalued attribute languages known.
+
+name rollno  branch languages-known
+sai   21     cse      telugu,english
+shiva 22     eee	   english,hindhi
+raju  24     it        telugu,hindhi
+
+after 1nf:
+```````````
+name rollno  branch   languages-known
+sai   21     cse      english
+sai   21     cse      telugu
+shiva 22     eee	  english
+shiva 22     eee	  hindhi
+raju  24     it       telugu
+raju  24     it       hindhi
+
+
+Second Normal Form(2nf):
+A relation will be in 2NF if it is is 1NF and not contain any partial dependency
+i.e No partial dependency.
+
+Student
+name  rollno branch   languages-known
+sai   21     cse      english
+sai   21     cse      telugu
+shiva 22     eee	  english
+shiva 22     eee	  hindhi
+raju  24     it       telugu
+raju  24     it       hindhi   
+
+
+
+name rollno  branch
+sai   21     cse
+shiva 22     eee
+raju  24     it
+
+creating separate table for partial dependency
+rollno  languages-known
+21      telugu
+21      english
+22      english
+22      hindhi
+24      telugu
+24      hindhi
+
+ 
+Third Normal Form(3NF):
+A table will be in 3NF. if it is in 2nf and if there is no transitive 
+dependency for non-prime attributes then the table is in third normal form.
+
+
+name   rollno   branch   fee
+sai    21       cse      30000
+shiva  22       aiml     20000
+ramesh 23       ds       10000
+suresh 24       ece      5000
+
+after 3nf
+
+name  rollno  branch
+sai    21       cse      
+shiva  22       aiml     
+ramesh 23       ds       
+suresh 24       ece      
+
+branch fee
+cse   30000
+aiml  20000
+ds    10000
+ece   5000
+
+
+
+Boyce-codd normal form(BCNF):
+Boyce-codd normal form(BCNF) is an extension to the third normal form. 
+It is also known as 3.5NF.
+
+BCNF is the advanced version of 3NF. it is stricter than 3NF.
+
+rules:
+A table is in BCNF,
+1.If it is in 3NF
+2.And, for any dependency A->B
+  A should be a super key
+  
+
+
+rollno   std_name   branch_id   branch_name
+
+1	     sai         121         cse
+2        shiva       122         aiml
+3        ramesh      123         ds
+4        raju        121         cse
+
+
+
+rollno   std_name   
+
+1	     sai        
+2        shiva      
+3        ramesh      
+4        raju       
+
+
+  branch_id   branch_name
+
+  121         cse
+  122         aiml
+  123         ds
+
+Fourth Normal form(4NF):
+A relation will be in 4NF, if it is in BCNF and has no multi valued dependency.
+
+std_id        course           hobby
+
+1             ece              dancing
+2             cse              cricket
+3             aiml             singing
+
+std_id  course 
+1       ece
+2       cse
+3       aiml
+
+std_id   hobby
+1        dancing
+2        cricket
+3        singing
+
+
+
+
+
+
 
 
 
