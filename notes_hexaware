@@ -1220,13 +1220,166 @@ class Student {
 }
 
 
+primtive to wrapper class(object type) ->valueOf()
+Wrapper class(Objectype) -> primitive type -> intValue()
 
 
 
+from instance area, if we want to access instance properties how can 
+we access?
+directly we can access
 
 
+from any area means either instance area or static area if we want 
+to access static properties how can we access?
+
+  using class name or directly or object name
+  
+from static area if we want to access instance varaibles how can we 
+access?
+
+ using object name 
+ 
+ 
+
+public class Test2 {
+	
+	int x = 100;//instance variable
+	static int y = 20;//class level variable or static variable
+	
+	void display()
+	{
+		//instance area
+		System.out.println(x);
+		System.out.println(Test2.y);
+		System.out.println(y);
+		
+	}
+	
+	void sum() {
+		
+		//local variables
+		int p=100,q=200;
+		System.out.println("sum is: " + (p+q));
+		
+	}
+	
+	/*
+	 * void operation() 
+	 * { System.out.println(p);
+	 *  System.out.println(q); 
+	 *  }
+	 */
+	
+	public static void main(String[] args) {
+		
+		//static area
+		
+		Test2 obj = new Test2();
+		System.out.println(obj.x);
+		System.out.println(y);
+		
+	}
+
+}
+
+unary operators:
+``````````````````
+
+public class Test3 {
+	
+	public static void main(String[] args) {
+		
+		
+		int x = 100;
+		
+		System.out.println(x++);//post increment operator-100 
+	
+	    System.out.println(x);//101
+	    
+	    System.out.println(++x);//pre increment operator - 102
+	    System.out.println(x);
+	    
+	    System.out.println(x--);//102
+	    
+	    System.out.println(x);//101
+	    
+	    System.out.println(--x);//100
+	    System.out.println(x);//100
+	}
+
+}
+
+operators
+datatypes
+control statements
+variables
+methdos
+architecture
 
 
+public class Test3 {
+	
+	public static void main(String[] args) {
+		
+		
+		/*int meal = 5;
+		int tip = 2;
+		int total = meal + (meal>6 ? ++tip : tip);
+		System.out.println(tip);
+		System.out.println(total);*/
+		
+		/* x = 10, y = 5;
+		boolean w = true, z = false;
+		x = w ? y++ : y--;
+		w = !z;
+	
+		System.out.print((x+y)+(w ? 5 : 10));*/
+	
+    /*for(int i=1;i<=10;i++) {
+		
+    	if(i%2==0)
+    	{
+    		System.out.println(i);
+    	}
+    }*/
+		/*int i=1;
+		while(i<=10)
+		{
+			if(i%2!=0)
+				System.out.println(i);
+			i++;
+		}*/
+		/*int i=1;
+		do {
+			System.out.println(i);
+			i++;
+		} 
+		while (i>10);*/
+		
+		/*int singer = 0;
+		while (singer) 
+		System.out.println(singer++);*/
+		
+		/*
+		 * do { int count = 0; do { count++; } while (count < 2); break; } while (true);
+		 * 
+		 * System.out.println(count);
+		 */
+		
+		/*
+		 * int i = 0; for(i = 0; i < 10; i++){break; } System.out.println(i);
+		 */
+		
+		/*
+		 * int i = 0; for (System.out.print("HI"); i < 1; i++)
+		 * System.out.print(" Hexaware");
+		 * 
+		 */
+		
+	}
+
+}
 
 
 
