@@ -754,7 +754,22 @@ it is a super key with fewest possible columns.
 
 
 Normalization:
-A relation will be in 1nf if it contains an atomic values.
+
+1.reduces redundancy
+2.improves data integrity.
+3.simplifies updates7
+5.facilitates maintenance
+6.supports consistent data entry
+7.facilitates scalability
+8.reduces anomalies
+
+
+
+
+
+
+
+A relation/table will be in 1nf if it contains an atomic values.
 
 it states that an attribute of a table cannot hold multiple values.
 It must hold only single valued attribute.
@@ -763,7 +778,9 @@ First normal form disallow the multi valued attributes.
 
 Relation student is not in 1nf because of multivalued attribute languages known.
 
-name rollno  branch languages-known
+Student
+```````
+name  rollno branch   languages-known
 sai   21     cse      telugu,english
 shiva 22     eee	   english,hindhi
 raju  24     it        telugu,hindhi
@@ -780,8 +797,11 @@ raju  24     it       hindhi
 
 
 Second Normal Form(2nf):
-A relation will be in 2NF if it is is 1NF and not contain any partial dependency
-i.e No partial dependency.
+A relation will be in 2NF if it is is 1NF and not contain any partial 
+dependency i.e No partial dependency.
+
+
+
 
 Student
 name  rollno branch   languages-known
@@ -819,6 +839,11 @@ sai    21       cse      30000
 shiva  22       aiml     20000
 ramesh 23       ds       10000
 suresh 24       ece      5000
+
+
+
+
+
 
 after 3nf
 
@@ -874,7 +899,8 @@ rollno   std_name
   123         ds
 
 Fourth Normal form(4NF):
-A relation will be in 4NF, if it is in BCNF and has no multi valued dependency.
+A relation will be in 4NF, if it is in BCNF and has no multi valued 
+dependency.
 
 std_id        course           hobby
 
@@ -893,8 +919,305 @@ std_id   hobby
 3        singing
 
 
+Fifth Normal form:
+or porject join normal form.
+
+A relation is in fifth normal form if it is in 4NF and does not consists any 
+join dependency.
+
+5NF is satisfied when all the tables present in the dbms are broken down into 
+as many more tables to ensure there is no redundancy.
+
+subject    faculty      year
+
+c          satish       1
+c          shiva        1
+java       rk           2
+dbms       pavan        3
 
 
+
+subject faculty
+
+
+faculty   year
+
+
+subject  year
+
+
+
+
+list of softwares
+
+
+dml:
+
+insert into product set pid=100,pname='laptop';
+insert into product values(101,'laptop');
+insert into product(pid,pname) values(102,'laptop');
+insert into product(pname) values('laptop');
+
+
+CREATE TABLE emp (
+  empno decimal(4,0) NOT NULL,
+  ename varchar(10) default NULL,
+  job varchar(9) default NULL,
+  mgr decimal(4,0) default NULL,
+  hiredate date default NULL,
+  sal decimal(7,2) default NULL,
+  comm decimal(7,2) default NULL,
+  deptno decimal(2,0) default NULL
+);
+
+
+CREATE TABLE dept (
+  deptno decimal(2,0) default NULL,
+  dname varchar(14) default NULL,
+  loc varchar(13) default NULL
+);
+
+
+
+joins:
+
+innerjoin:
+innerjoin returns intersection of rows that satisfy join condition.
+
+if a row in the first table has no matching row in the second table, 
+or viceversa, that row will excluded from the resultset.
+
+syntax:
+
+ select col1,col2... from table1 inner join table2 on table1.colname=
+ table2.colname;
+
+
+requirement:
+
+names of the employees along with their department names?
+
+inner join on department_id column (since it is a common column)
+
+
+select emp.empno,emp.ename,dept.dname from emp inner join dept on 
+emp.deptno=dept.deptno;
+
+
+LEFT JOIN:
+LEFT OUTER JOIN
+purpose: retrieve all records from left side table
+(the table specified before the 'LEFT JOIN' keyword and the matched 
+records from the right table.
+If there is no match, NULL values are returned for columns 
+from the right table.
+
+syntax:
+SELECT col1,col2... FROM table1 LEFT JOIN table2 
+ON table1.col=table2.col;
+
+example:
+select emp.empno,emp.ename,dept.dname from dept left join emp on emp.deptno=dept.deptno;
+
+select emp.empno,emp.ename,dept.dname from emp left join dept on emp.deptno=dept.deptno;
+
+full join:
+
+select emp.empno,emp.ename,dept.dname from emp left join dept on emp.deptno=dept.deptno union
+select emp.empno,emp.ename,dept.dname from emp right join dept on emp.deptno=dept.deptno where emp.empno is null
+
+self join:
+
+
+select e.ename as employee,m.ename as manager from emp e join emp m 
+on e.mgr=m.empno;
+
+
+Subquery:
+A subquery in sql is a query nested within another query.
+
+It can be used in various parts of a sql statement, such as 
+select from, where, or having clauses. 
+
+subqueries are enclosed in parentheses and can return a single value, 
+a single row, a single column or a result set with multiple rows 
+and columns.
+
+select col1,col2 from tab1 where 
+col3=(select col4 from tab2 where condition);
+
+
+
+select col1,col2 from tab1 where 
+col3 in(select col4 from tab2 where condition);
+
+coorelated subquery:
+select col1,col2 from tab1 t1 where col3>(select avg(col3) from tab1 t2 
+where t2.category=t1.category);
+
+
+1.Retrieve employees who work in the 'IT department'.
+
+
+select ename from emp where deptno=
+(select deptno from dept where dname='RESEARCH');
+
+
+2.Retrieve employee who work in the RESEARCH or SALES department?
+
+ select ename from emp where deptno in (select deptno from dept where dname in('RESEARCH','SALES')); 
+
+3.Find employees whose salary is above the the average salary
+  in their respective departments?
+  
+  select ename from emp e where sal > 
+  (select avg(sal) from emp where deptno=e.deptno));
+
+4.Retrieve department names along with the total no.of employees in each 
+  department?
+  
+  select dname,(select count(*) from emp where deptno=dept.deptno)as num_employees from dept;
+
+
+
+
+
+select ename from emp where deptno=(select deptno from dept where dname='RESEARCH');
+select ename from emp where deptno in (select deptno from dept where dname in('RESEARCH','SALES')); 
+select ename from emp e where sal > (select avg(sal) from emp where deptno=e.deptno);
+select dname,(select count(*) from emp where deptno=dept.deptno)as num_employees from dept;
+
+
+java:
+`````
+
+class Welcome
+{
+public static void main(String[] args)
+{
+ System.out.println("Welcome");
+ }
+ }
+ ------------------------
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+	 byte  b = 127;
+	 char c = 'a';
+	 boolean bl = true;
+	 float f = 4.5f;
+	 double d = 5.6;
+	 String s = "rama";
+	 
+	 System.out.println(b);
+	 System.out.println(c);
+	 System.out.println(bl);
+	 System.out.println(f);
+	 System.out.println(d);
+	 System.out.println(s);
+		
+	}
+
+}
+
+
+class is a collection of variables and methods 
+
+how to declare the variables using datatypes .
+
+method:
+`````````
+method is the place where we are writing the logic. 
+
+
+[accessmodifier] <returntype> <methodname>([if any parameters])
+{
+
+   //logic 
+}
+
+void : it is a return type means what it doesn't return any value. 
+
+void sum()
+{
+System.out.println("sum");
+}
+
+void sum(int x, int y)
+{
+System.out.println(x+y);
+}
+
+int getAge()
+{
+  return 36; 
+}
+note:return type and return value must be compatible with each other.
+
+int getSum(int x, int y)
+{
+  return x+y;
+}
+
+finally we are keeping these variables and methods inside a class. 
+class is a collection of 
+   -variables 
+   & methods 
+   
+   
+shall we define one class name as Student contains some properties like 
+stid,stname,staddress and print their details?
+
+
+class Student{
+
+ //variables initialization  
+  int stid = 100;
+  String stname= "anushka";
+  String staddress = "bnglr";
+  
+ //display these details 
+ 
+  public void displayStudentDetails()
+  {
+     System.out.println("student id is:" + stid);
+	 System.out.println("student name is:" + stname);
+	 System.out.println("Student address is: " + staddress);
+  }
+
+
+}
+-------------------------------------------------
+
+class Student {
+
+	// variables initialization
+	int stid = 100;
+	String stname = "anushka";
+	String staddress = "bnglr";
+
+	// display these details
+
+	public void displayStudentDetails() {
+		System.out.println("student id is:" + stid);
+		System.out.println("student name is:" + stname);
+		System.out.println("Student address is: " + staddress);
+	}
+
+	public static void main(String[] args) {
+      
+		
+		//create the object for Student class
+		
+		 Student obj = new Student();
+		 
+		//call the dispalyStudentDetails()
+		
+		obj.displayStudentDetails();
+	}
+
+}
 
 
 
