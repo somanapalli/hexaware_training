@@ -1526,12 +1526,92 @@ this is the java reserved keyword and we are using in follwing two cases
 2.to differentiate class level varaibles and method level parameters when 
 both are same .
 
+we have 4 oops principles 
+
+ inheritance 
+ polymorphism 
+ abstraction 
+ encapsulation 
+ 
+
+if you really want to compare any objects reference based we should use 
+== operator
 
 
 
+inheritance:
+ 
+   inheritance is the process of taking the properties from one class 
+   to another class. 
+   
+   usage: reusability 
+   
+   using extends keyword we can practically implement inheritance. 
+   
+note:
+when we apply the inheritance concept we should create the object 
+for child class only not parent class (not recommended)
 
+ 
+encapsulation:
+`````````````
+encapsulation is the process of wrapping up of variables and methods 
 
+data hiding 
+security 
 
+because to make a class as an encapsulated class, we have to follow 
+some rules
+
+   every variable should be declared as private 
+   but for every variable we should maintain public setter and getter methods
+   
+   setter method -> to set the values into an object
+   getter method -> to get the values from an object 
+   
+   
+Employee.java:
+``````````````
+//encapsulated class
+public class Employee {
+	//private variables
+	private int empid;
+	private String empname;
+	
+	//defining public setters and getter methods
+	public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+	public String getEmpname() {
+		return empname;
+	}
+	public void setEmpname(String empname) {
+		this.empname = empname;
+	}
+	
+	
+}
+
+Test6.java:
+```````````
+//execution logic class
+public class Test6 {
+	
+	public static void main(String[] args) {
+		
+		Employee emp = new Employee();
+		
+		emp.setEmpid(100);
+		emp.setEmpname("rk");
+		
+		System.out.println("employee id is: " + emp.getEmpid());
+		System.out.println("employee name is:" + emp.getEmpname());
+	}
+
+}
 
 
 
