@@ -1381,5 +1381,161 @@ public class Test3 {
 
 }
 
+without constructor :
+
+
+public class Test4 {
+	
+	int x;
+	String y;
+	
+	
+	
+	public void setValues()
+	{
+		//initialization logic 
+		x=100;
+		y="Rama";
+	}
+	
+	public void display()
+	{
+		System.out.println("student id is: " + x);
+		System.out.println("student name is : " + y);
+	}
+	
+	public static void main(String[] args) {
+		//static area
+		//create the object for class 
+		Test4 obj= new Test4();
+		
+		//calling setValues
+		obj.setValues();
+		//calling display()
+		obj.display();
+		
+	}
+	
+
+}
+
+example:
+````````
+
+public class Test4 {
+	
+	int x;
+	String y;
+	//constructor 
+	public Test4()
+	{
+		//initialization logic
+		x=100;
+		y="rk";
+	}
+	
+	
+	
+	public void display()
+	{
+		System.out.println("student id is: " + x);
+		System.out.println("student name is : " + y);
+	}
+	
+	public static void main(String[] args) {
+		//static area
+		//create the object for class 
+		Test4 obj= new Test4();
+		
+		
+		//calling display()
+		obj.display();
+		
+	}
+	
+
+}
+
+
+types of constructor:
+
+  1.default constructor -constructor which doesn't takes any parameters
+  2.parameterized constructor -constructor which takes parameters 
+  
+  
+  
+  
+ if you are note defining any constructor(s) in a class, java compiler 
+will generate one default constructor automatically  known as 
+system defined default constructor .
+
+purpose: it will assign the default values 
+for every datatype there is a default value
+for the integer category -> 0
+for the float category - 0.0
+for the character category - single space
+for the boolean category - false 
+
+  
+example on parameterized constructor;
+````````````````````````````````````
+
+public class Test4 {
+	//class level variables 
+	int x;
+	String y;
+	
+	//parameterized constructor 
+    public Test4(int x, String y) {
+    	
+    	this.x=x;
+    	this.y=y;
+    }
+   
+	public void display()
+	{
+		System.out.println("student id is: " + x);
+		System.out.println("student name is : " + y);
+	}
+	
+	public static void main(String[] args) {
+		//static area
+		//create the object for class 
+		Test4 obj= new Test4(100,"rk");
+		
+		
+		//calling display()
+		obj.display();
+		
+	}
+	
+
+}
+
+can't we define both in a single class?
+
+yes 
+
+try to define both default and parameterized constructor ?
+
+
+this:
+this is the java reserved keyword and we are using in follwing two cases
+
+1.constructor chaining(refer this) and do one program 
+2.to differentiate class level varaibles and method level parameters when 
+both are same .
+
+
+
+
+
+
+
+
+
+
+
+
 
 
