@@ -1613,8 +1613,81 @@ public class Test6 {
 
 }
 
+polymorphism:
+`````````````````
+
+method overloading:
 
 
+public class Test7 {
+	public void sum(int a, int b)
+	{
+		System.out.println(a+b);
+	}
+
+	public void sum(double a, double b)
+	{
+		System.out.println(a+b);
+	}
+	
+	public static void main(String[] args) {
+		
+		Test7 obj = new Test7();
+		obj.sum(5, 6);
+		obj.sum(6.7,8.9);
+			
+	}
+}
+
+method overriding:
+````````````````````
+Parent.java:
+```````````
+
+public class Parent {
+
+	//overridden method
+	public void sum(int x, int y)
+	{
+		System.out.println("sum is: " +(x+y));
+	}
+}
+
+Child.java:
+``````````
+
+public class Child extends Parent {
+
+	//overriding method
+	public void sum(int x, int y) {
+		
+		System.out.println("sub is: " +(x-y));
+	}
+	
+}
+
+Test8.java:
+````````````
+
+public  class Test8 {
+	
+	public static void main(String[] args) {
+		
+		/*Child obj = new Child();
+		obj.sum(6, 5);*/
+		
+		/*Parent obj = new Parent();
+		obj.sum(6, 5);*/
+		//upcasting
+		Parent obj = new Child();
+		obj.sum(6, 5);
+		
+		
+		
+		
+	}
+
+}
 
 
 
