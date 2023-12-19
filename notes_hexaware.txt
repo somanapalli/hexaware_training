@@ -1988,4 +1988,312 @@ but the differenece between ArrayList and LinkedList is
  SortedMap - TreeMap 
  Comparator
  Comparable 
+ Set:
  
+  it allows both homogenious and heterogenious objects
+  duplicates are not allowed
+  insertion order is not preserved 
+  null insertion is possible but only for one time. 
+  
+     HashSet
+	 LinkedHashSet 
+	 
+cursors in collections are 
+
+  ->Iterator
+  ->ListIterator
+  
+ example on Iterator:
+ package com.hexaware.cfw;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for Set
+	
+	
+    Set<Integer> s  = new HashSet();
+    s.add(34);
+    s.add(87);
+    s.add(5);
+    s.add(675);
+    s.add(34);
+    
+    System.out.println(s);
+    
+   Iterator<Integer> itr =  s.iterator();
+    while(itr.hasNext())
+    {
+    	Integer i = itr.next();
+    	if(i%2==0)
+    		itr.remove();
+    }
+    System.out.println(s);
+}
+}
+
+in case of LinkedHashSet , insertion order is preserved 
+in case of HashSet, we can't predict the order. 
+
+package com.hexaware.cfw;
+
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for Set
+	
+	
+    Set<Integer> s  = new LinkedHashSet();
+    s.add(34);
+    s.add(87);
+    s.add(5);
+    s.add(675);
+    s.add(34);
+    
+    System.out.println(s);
+    
+   Iterator<Integer> itr =  s.iterator();
+    while(itr.hasNext())
+    {
+    	Integer i = itr.next();
+    	if(i%2==0)
+    		itr.remove();
+    }
+    System.out.println(s);
+}
+}
+
+Book.java:
+```````````
+package com.hexaware.cfw;
+
+import java.util.Objects;
+
+public class Book {
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(bookId, bookName);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return bookId == other.bookId && Objects.equals(bookName, other.bookName);
+	}
+
+
+	private int bookId;
+	private String bookName;
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public Book(int bookId, String bookName) {
+		super();
+		this.bookId = bookId;
+		this.bookName = bookName;
+	}
+	
+	
+    public String toString() {
+    	return bookId + " " + bookName;
+    }
+}
+
+Test.java:
+``````````
+package com.hexaware.cfw;
+
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for Set
+	
+	
+    Set<Book> s  = new LinkedHashSet<Book>();
+    Book b1 = new Book(100,"java");
+    Book b2 = new Book(102,"sql");
+    Book b3 = new Book(100,"java");
+    s.add(b1);
+    s.add(b2);
+    s.add(b3);
+    System.out.println(s);
+    
+   
+}
+}
+
+SortedSet:
+```````````
+java.util pacakge 
+interface
+
+ 1.it allows only homogenious objects 
+ 2.insertion order is we can predict(default natural sorting order i.e 
+   ascending or alphabetical)
+ 3.null insertion is not possible 
+ 4.duplicates are also not allowed
+
+   ->TreeSet
+
+    first(),last(),subset(),tailSet(),headSet()... 
+
+	package com.hexaware.cfw;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for Set
+	
+	
+    SortedSet<Integer> s  = new TreeSet<Integer>();
+    s.add(34);
+    s.add(98);
+    s.add(7);
+    s.add(678);
+    s.add(45);
+    s.add(132);
+    s.add(7);
+   
+    		
+    System.out.println(s);
+    
+    System.out.println(s.first());
+    System.out.println(s.last());
+    System.out.println(s.headSet(98));
+    System.out.println(s.tailSet(98));
+    System.out.println(s.subSet(45, 678));
+    
+   
+}
+}
+Book.java:
+``````````
+package com.hexaware.cfw;
+
+import java.util.Objects;
+
+public class Book implements Comparable<Book>{
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(bookId, bookName);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj;
+		return bookId == other.bookId && Objects.equals(bookName, other.bookName);
+	}
+
+
+	private int bookId;
+	private String bookName;
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public Book(int bookId, String bookName) {
+		super();
+		this.bookId = bookId;
+		this.bookName = bookName;
+	}
+	
+	
+    public String toString() {
+    	return bookId + " " + bookName;
+    }
+	@Override
+	public int compareTo(Book o) {
+		return this.getBookName().compareTo(o.getBookName());
+	}
+}
+
+Test1.java:
+`````````
+package com.hexaware.cfw;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for Set
+	
+	
+    SortedSet<Book> s  = new TreeSet<Book>();
+    
+    Book b1 = new Book(100,"java");
+    Book b2 = new Book(102,"sql");
+    Book b3 = new Book(100,"java");
+    Book b4 = new Book(103,"algorithms");
+    
+    s.add(b1);
+    s.add(b2);
+    s.add(b3);
+    s.add(b4);
+    
+   
+    		
+    System.out.println(s);
+    
+   
+    
+   
+}
+}
+Comparable - > getting the data in natural sorting order 
+
+Comparator ->
+now i want in descending order based on bookid, or i want the data 
+based on bookname in reverse order?
+
+Comparator
