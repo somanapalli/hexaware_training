@@ -1,0 +1,1991 @@
+algorithm:
+
+An algorithm is a step-by-step set of instructions
+or rules to perform a specific task or solve a 
+particular problem.
+
+
+
+how to write the algorithm:
+
+algorithm swap(a,b)
+{
+  temp=a;-1
+  a=b;-1
+  b=temp;-1
+}
+f(n)=3
+s(n)=3
+
+how to analyze an algorithm:
+
+  1.time 
+  2.space
+  3.n/w consumption
+  4.power consumption
+  5.cpu registors
+  
+
+O notation
+
+O(n)
+o(n2)
+
+
+
+8 3 9 7 2
+
+algorithm sum(A,n)
+{
+   s=0;                      1
+   for(i=0;i<n;i++)          
+   {
+     s=s+A[i];
+   
+   
+   }
+   return s;
+}
+
+A -n
+n- 1
+s - 1
+i -1
+
+s(n)=n+3
+f(n)=2n+3
+
+algorithmic paradigms:
+```````````````````````
+
+The word paradigm means ' pattern of thought'.
+
+Brute force
+
+divide and conquer
+
+greedy
+
+dynamic programing
+
+note:
+these  paradigms define the general structure of 
+how the solution would look like.
+
+
+Brute Forece:
+
+The beauty of a brute force method is that it is pretty 
+straightforward and if a solution to a problem exists, 
+you are guaranteed to find it. 
+
+This option is also the most exhasustive option as we might 
+go through all the possibilities before arriving at the result.
+
+
+what is brute force method?
+
+Greedy algorithm:
+
+Greedy algorithm is a paradigm that describes the approach on how 
+you can go about solving a problem.
+
+making the choice that seems best at that point of time.
+
+
+datastructure basics:
+
+array
+stack
+linkedlist
+queue
+
+
+Array:
+```````
+An array is a linear data structure that is capable of holding values 
+that are of a similar type.
+
+arr = 4 8 15 16 23 42
+
+int[] x={4,8,15,16,23,42}
+
+x[0]
+x[1]
+x[2]
+if the array size is n-
+maximum index is n-1
+
+int[] physics={}
+int[] chemistry={}
+int[] biology ={}
+
+
+  int x[]={20,30,40};
+    3
+	2
+	
+x[3]=50;
+
+
+
+Linkedlist:
+````````````
+Linked List is a data structure that is really helpful to write memory 
+efficient and fast programs. 
+
+A linked list consists of list nodes. 
+
+Each list node has a value and the address to the next node. 
+
+This chain of nodes is often called as a linked list. 
+
+
+struct node{
+
+
+   //this is the data type that we want ti stire
+   int data;
+   //a pointer to the next node, same type
+   struct node*next;
+
+}
+
+list = list -> next
+
+how to traversing a linked list?
+
+
+stack:
+
+push:
+in this operation, we add an element on top 
+of the previous element such that the new element 
+is now the top element. 
+similar to adding a new plate on top of the existing plates.
+
+pop:
+this is the deletion operation,
+
+push(): add a new element
+pop(): remove an element 
+
+peek()/top(): 
+
+isEmpty():
+isFull():
+
+
+100
+  90
+  
+isFull() -> false
+
+
+Queue:
+A queue is a linear data structure that stores 
+data (similar to linkedlists and stacks)
+in a queue, the oeder in which the data arrives is important.
+
+A queue is an ordered list in which insertions are doen at one end(rear)
+and deletions are done at other end(front)
+
+The first element that you insert, is the first one that is removed. 
+
+Queue: First in First out(FIFO)
+
+
+Insertion sort:
+
+2,4,6,3,10,k,j
+
+
+2,3,4,6,10,k,j
+
+
+2,3,4,6,10,j,k
+
+algorithm:
+1.start scanning the elements from 2nd position. 
+2.if(arr[i]<arr[i-1])
+  1.swap arr[i] and arr[i-1]
+  2.keep swapping until the number is less than the previous number.
+  
+3.The array gets sorted as we reach the end.
+
+ 
+
+i=4;
+key = 7
+j = 4-1=3
+
+
+[2,5,9,3,7,4,11,13]
+
+2,5,3,9,7,4,11,13
+
+2,3,5,9,7,4,11,13
+2,3,5,7,9,4,11,13
+
+/*function to sort array using insertion sort*/
+
+void sort(int arr[])
+{
+
+   int n = arr.length; //8
+   for(int i=1;i<n;++i){
+     int key = arr[i];
+	 int j = i-1;
+	 
+	 while(j>=0 && arr[j] > key){
+	    arr[j+1]=arr[j];
+		j=j-1;
+	 }
+   
+   arr[j+1] = key;
+   }
+
+}
+
+Bubble Sort:
+`````````````
+
+Bubble sort is one of the techniques which can be used 
+to arrange a set of elements in a certain pre-defined 
+manner. 
+
+As the name suggests, at every iteration, the largest 
+elements bubbles towards the end.
+
+
+principle of swapping two elements.
+
+algorithm:
+
+we start from the bottom of the array 
+and look for smaller elements.
+
+select the last element
+
+if the second last element is greater than the selected number, 
+swap both of them.
+
+Now compare the second last number with the third last number.
+if the number is not small, then do not swap, else again swap.
+
+This way by swapping each time, we will get the smallest 
+number in the array and it will bubble at the top of the array
+
+[5,6,9,4,8,2]
+
+void bubbleSort(int arr[])
+{
+  int n =  arr.length;
+  for(int i=0;i<n-1;i++)
+  {
+    for(int j=0;j<n-i-1;j++){
+	  if(arr[j]> arr[j+1]){
+	  //swap arr[j+1] and arr[j]
+	  int temp= arr[j];
+	  arr[j]=arr[j+1];
+	  arr[j+1]=temp;
+	  }
+ }
+ 
+merge sort
+selection sort
+
+
+linear search:
+
+[13,0,8,15,1,6,2,7,21,3,4,9,5]
+
+Number to search = 7,25
+
+
+1.start from the first element.
+2.check if it matches the target element.
+3.if yes, we found the element
+4.else, move ahead and check again
+5.Repeat the above process till you reach the end of the array.
+
+public static boolean linearSearch(int[] arr,int numberToSearch){
+
+    boolean found = false;
+	
+	//search sequentially through each element
+	
+	for(int i=0;i<arr.length;i++){
+	
+	    if(arr[i] == numberToSearch){
+		   found=true;
+		   break;
+		}
+	   
+	}
+	
+	return found;
+	}
+	
+sorted linear search:
+`````````````````````
+[0,1,2,3,4,5,7,8,13,15,21,30,99]
+
+6
+
+
+public static boolean linearSearch(int[] arr,int numberToSearch){
+
+    boolean found = false;
+	
+	//search sequentially through each element
+	
+	for(int i=0;i<arr.length;i++){
+	
+	    if(arr[i] == numberToSearch){
+		   found=true;
+		  
+		   if(arr[i] > numberToSearch)
+		   break;
+		}
+	   
+	}
+	
+	return found;
+	}
+	
+
+
+Binary Search:
+It is one of the most important search algorithm in computer programming.
+
+As the name suggests, binary means 2, it involes bisecting the array in 2 halves
+ at every step to ultimately narrow down our search space.
+ 
+ The only restriction is that the list should be sorted.
+ 
+
+
+working of binary search:
+
+
+numberToSearch = 12
+
+  [1,3,4,6,7,9,10,12,13,15,16,19,20,23,24,27,2,31]
+  
+
+algorithm:
+
+1.set the start position as begininig of array.
+
+2.set the end position as the end of array.
+
+3.start a loop
+
+4.check the middle eleement. if it matches , we found our result.
+
+5.if (middle element > number to search), update the end position to middle
+
+6.else , update the first position 
+
+7.Repeat steps 4-6 until we find our element, or exhaust out of options.
+
+
+static boolean binarySearch(int[] arr, int numberToSearch)
+{
+
+ int left = 0;
+ int right = arr.length-1;
+ 
+ while(left < = right){
+ 
+   //find the mid index
+   int mid = (left + right) / 2
+ 
+   //check at mid index
+   if(arr[mid]==numberToSearch)
+   return true;
+   //update the terminal indices
+   
+   if(arr[mid] <numberToSearch){
+      left = mid + 1;
+   
+   }
+   else
+   right= mid-1;
+ 
+ }
+
+  return false;
+
+}
+
+
+some factors are considered for choosing the datastructure:
+
+what type of data needs to be stored?
+cost of operations
+memory usage
+
+
+A tree is also one of the data structure that represent hierarchal data. 
+
+
+
+public static void main(String[] args)
+{
+
+TreeNode root = new TreeNode(4);
+root.left = new TreeNode(8);
+root.right = new TreeNOde(15);
+
+TreeNode leftNode = root.left;
+TreeNode rightNode = root.right;
+
+leftNode.left = new TreeNode(16);
+
+rightNode.left=new TreeNode(23);
+rightNOde.right = new TreeNode(42);
+
+
+System.out.println(root.val);
+System.out.println(root.right.left.val);
+}
+
+
+
+IN - ORDER - TRAVERSAL:
+```````````````````````
+
+
+  LEFT ->VALUE -> RIGHT
+  
+     2
+	 
+  8     4
+  
+3   7      1
+
+        6
+
+
+LEFT           > VALUE                 > RIGHT
+
+ 8
+3 7               2                       4  
+                                            1
+L V R
+3 8 7							              6
+										  
+										  
+                                          L  V  R
+										  
+                                             4   1
+											    6
+												
+												L V R
+												6 1 
+
+3,8,7,2,4,6,1
+
+
+
+public static void inOrderTraversal(TreeNOde root){
+
+   if(root == null)
+   return;
+   inOrderTraversal(root.left);
+   System.out.println(root.val = " ->");
+   inOrderTraversal(root.right);
+   
+}
+
+pre-order-traversal:
+value->left->right
+post-order-traversal:
+left ->right -> value
+
+
+SDLC:
+`````
+
+Software Development Life Cycle
+
+It is a systematic process for planning , creating, testing, deploying 
+and maintaining software.
+
+it consists of various phases, each serving a specific purpose in the 
+development process. 
+
+1.Requirements Gathering and Analysis
+
+2.Planning
+
+3.Design
+
+4.implementation (coding)
+
+5.Testing
+
+6.Deployment
+
+7.Maintainence and Support
+
+
+Each phase is interconnected and the SDLC provides a structured approach
+to software development, helping teams manage and control 
+te entire process effectively.
+
+
+1.waterfall model
+2.Iterative model
+3.Incremental model
+4.V-Model(Verification and Validation Model)
+5.Spiral Model
+6.Agile Model
+
+   Agile is an iterative and incremental model that 
+   emphasizes flexibility and customer feedback.
+   sprint
+   dev -> qa -> devops team -> db team ->
+
+scrum
+
+
+
+agile model / agile methodology/ agile process:
+
+
+It is an iterative and incremental approach/process.
+
+
+Agile principles:
+
+1) Customer no need to wait for long time.
+2) We develop,test and release piece of software to the customer with few no.of 
+   features.
+3) we can accept/accomodate requirement changes.
+
+There will be good communication between  Customer,Business Analyst,Developer 
+and Tester.
+
+Advantages:
+
+Requirement changes are allowed in any stage of development or we can accomodate
+requirement changes in the middel of the development.
+
+Releases will be very fast(weekly)
+
+Customer no need to wait for long time .
+
+Good communcation betweeen team.
+
+It is very easy model to adopt.
+
+
+Disadvantge:
+less focus on design and documentation since we diliver software very faster.
+
+
+scrum:
+``````
+scrum is a framework through whihc we build software product by following 
+Agile principles.
+
+Scrum includes group of people called as scrum team.
+
+Normally contains 5 to 9 members.
+
+
+1)Product Owner
+
+2)Scrum Master
+
+3)Dev Team 
+
+4)QA team
+
+
+Product owner:
+``````````````
+Define the features of the product.
+
+Prioritize features according to market value.
+
+Adjust features and priority every iteration, as needed
+
+Accept or reject work results.
+
+
+Scrum Master:
+The main role is facilitating and driving the agile process.
+
+and servant-leader responsible for ensuring the scrum team 
+adheres to agile principples and follows the scrum framework.
+ 
+ They help remove obstacles, faster collaboration and 
+ enable continuious improvement within the team .
+ 
+ 
+Developers and QA:
+
+  Develop and Test the software 
+  
+  
+scrum terminilogy:
+``````````````````
+user story:
+
+A feature /module in a software.
+
+Epic:
+collection of user stories.
+
+product backlog:
+contains list of user stories. prepared by product owner.
+
+sprint/iteration:
+period of time to complete the user stories, decided by the product owner 
+and team, usually 2-4 weeks of time.
+
+sprint planning meeting:
+Metting conducts with the team to define what can be delivered in the sprint
+and duration.
+
+sprint backlog:
+List of commited stories by Dev/QA for specific sprint.
+
+Scrum meeting:
+meeting conducted by scrum master everyday 15 mnts. called as 
+scrum call /standup meeting.
+
+-what did you do yesterday?
+-what will you do today?
+-Are there any impediments in your way?
+
+
+sprint retrospective meeting:
+
+
+conducts meeting after completion of sprint.
+The entire team including both the Scrummaster and the product owner 
+should participate.
+
+
+story point:
+
+Rough estimation of user stories, will be given by Dev & QA 
+in the form of fibonacci series.
+
+0 1 1 2 3 5 8 13... 
+
+login - dev - 5 qa -3(8hrs)
+
+
+Burndown chart:
+shows how much work remaining in the sprint.
+Maintained by the scrum master daily.
+
+JIRA
+
+TRELLO
+
+Trello is a popular project management tool 
+that uses a visual approach to help teams organize 
+and manage their work. 
+It utilizes boards,lists,and cards to represnt projects and tasks.
+
+Users can create tasks on cards, move them between lists to track progress, 
+and collaborate with team members.
+
+
+
+
+
+Book 
+  Each Book can have multiple authors, and 
+  each author can write multiple books
+  
+
+Author
+ AuthorId
+ AuthorName
+ BookPointer1,
+ BookPointer2..
+ 
+ 
+Book
+  BookId,
+  Title
+  AuthorPointer1,
+  ...
+  
+Author
+[1,"jane Doe",101,102]
+Book
+[101,"The Adventure",1,2]
+[102,"Mystery Unveiled",1]
+
+
+
+Students table
+
+ StudentId
+ Name
+ Email
+ 
+ {studentId}
+ {Name}
+ {Email}
+ {studentId,Name}
+ {studentId,Email}
+ 
+
+Candidate key:
+
+A candidate key is a minimal super key
+
+it is a super key with fewest possible columns.
+
+
+
+{StudentId},{Email}
+
+
+
+Normalization:
+
+1.reduces redundancy
+2.improves data integrity.
+3.simplifies updates7
+5.facilitates maintenance
+6.supports consistent data entry
+7.facilitates scalability
+8.reduces anomalies
+
+
+
+
+
+
+
+A relation/table will be in 1nf if it contains an atomic values.
+
+it states that an attribute of a table cannot hold multiple values.
+It must hold only single valued attribute.
+
+First normal form disallow the multi valued attributes.
+
+Relation student is not in 1nf because of multivalued attribute languages known.
+
+Student
+```````
+name  rollno branch   languages-known
+sai   21     cse      telugu,english
+shiva 22     eee	   english,hindhi
+raju  24     it        telugu,hindhi
+
+after 1nf:
+```````````
+name rollno  branch   languages-known
+sai   21     cse      english
+sai   21     cse      telugu
+shiva 22     eee	  english
+shiva 22     eee	  hindhi
+raju  24     it       telugu
+raju  24     it       hindhi
+
+
+Second Normal Form(2nf):
+A relation will be in 2NF if it is is 1NF and not contain any partial 
+dependency i.e No partial dependency.
+
+
+
+
+Student
+name  rollno branch   languages-known
+sai   21     cse      english
+sai   21     cse      telugu
+shiva 22     eee	  english
+shiva 22     eee	  hindhi
+raju  24     it       telugu
+raju  24     it       hindhi   
+
+
+
+name rollno  branch
+sai   21     cse
+shiva 22     eee
+raju  24     it
+
+creating separate table for partial dependency
+rollno  languages-known
+21      telugu
+21      english
+22      english
+22      hindhi
+24      telugu
+24      hindhi
+
+ 
+Third Normal Form(3NF):
+A table will be in 3NF. if it is in 2nf and if there is no transitive 
+dependency for non-prime attributes then the table is in third normal form.
+
+
+name   rollno   branch   fee
+sai    21       cse      30000
+shiva  22       aiml     20000
+ramesh 23       ds       10000
+suresh 24       ece      5000
+
+
+
+
+
+
+after 3nf
+
+name  rollno  branch
+sai    21       cse      
+shiva  22       aiml     
+ramesh 23       ds       
+suresh 24       ece      
+
+branch fee
+cse   30000
+aiml  20000
+ds    10000
+ece   5000
+
+
+
+Boyce-codd normal form(BCNF):
+Boyce-codd normal form(BCNF) is an extension to the third normal form. 
+It is also known as 3.5NF.
+
+BCNF is the advanced version of 3NF. it is stricter than 3NF.
+
+rules:
+A table is in BCNF,
+1.If it is in 3NF
+2.And, for any dependency A->B
+  A should be a super key
+  
+
+
+rollno   std_name   branch_id   branch_name
+
+1	     sai         121         cse
+2        shiva       122         aiml
+3        ramesh      123         ds
+4        raju        121         cse
+
+
+
+rollno   std_name   
+
+1	     sai        
+2        shiva      
+3        ramesh      
+4        raju       
+
+
+  branch_id   branch_name
+
+  121         cse
+  122         aiml
+  123         ds
+
+Fourth Normal form(4NF):
+A relation will be in 4NF, if it is in BCNF and has no multi valued 
+dependency.
+
+std_id        course           hobby
+
+1             ece              dancing
+2             cse              cricket
+3             aiml             singing
+
+std_id  course 
+1       ece
+2       cse
+3       aiml
+
+std_id   hobby
+1        dancing
+2        cricket
+3        singing
+
+
+Fifth Normal form:
+or porject join normal form.
+
+A relation is in fifth normal form if it is in 4NF and does not consists any 
+join dependency.
+
+5NF is satisfied when all the tables present in the dbms are broken down into 
+as many more tables to ensure there is no redundancy.
+
+subject    faculty      year
+
+c          satish       1
+c          shiva        1
+java       rk           2
+dbms       pavan        3
+
+
+
+subject faculty
+
+
+faculty   year
+
+
+subject  year
+
+
+
+
+list of softwares
+
+
+dml:
+
+insert into product set pid=100,pname='laptop';
+insert into product values(101,'laptop');
+insert into product(pid,pname) values(102,'laptop');
+insert into product(pname) values('laptop');
+
+
+CREATE TABLE emp (
+  empno decimal(4,0) NOT NULL,
+  ename varchar(10) default NULL,
+  job varchar(9) default NULL,
+  mgr decimal(4,0) default NULL,
+  hiredate date default NULL,
+  sal decimal(7,2) default NULL,
+  comm decimal(7,2) default NULL,
+  deptno decimal(2,0) default NULL
+);
+
+
+CREATE TABLE dept (
+  deptno decimal(2,0) default NULL,
+  dname varchar(14) default NULL,
+  loc varchar(13) default NULL
+);
+
+
+
+joins:
+
+innerjoin:
+innerjoin returns intersection of rows that satisfy join condition.
+
+if a row in the first table has no matching row in the second table, 
+or viceversa, that row will excluded from the resultset.
+
+syntax:
+
+ select col1,col2... from table1 inner join table2 on table1.colname=
+ table2.colname;
+
+
+requirement:
+
+names of the employees along with their department names?
+
+inner join on department_id column (since it is a common column)
+
+
+select emp.empno,emp.ename,dept.dname from emp inner join dept on 
+emp.deptno=dept.deptno;
+
+
+LEFT JOIN:
+LEFT OUTER JOIN
+purpose: retrieve all records from left side table
+(the table specified before the 'LEFT JOIN' keyword and the matched 
+records from the right table.
+If there is no match, NULL values are returned for columns 
+from the right table.
+
+syntax:
+SELECT col1,col2... FROM table1 LEFT JOIN table2 
+ON table1.col=table2.col;
+
+example:
+select emp.empno,emp.ename,dept.dname from dept left join emp on emp.deptno=dept.deptno;
+
+select emp.empno,emp.ename,dept.dname from emp left join dept on emp.deptno=dept.deptno;
+
+full join:
+
+select emp.empno,emp.ename,dept.dname from emp left join dept on emp.deptno=dept.deptno union
+select emp.empno,emp.ename,dept.dname from emp right join dept on emp.deptno=dept.deptno where emp.empno is null
+
+self join:
+
+
+select e.ename as employee,m.ename as manager from emp e join emp m 
+on e.mgr=m.empno;
+
+
+Subquery:
+A subquery in sql is a query nested within another query.
+
+It can be used in various parts of a sql statement, such as 
+select from, where, or having clauses. 
+
+subqueries are enclosed in parentheses and can return a single value, 
+a single row, a single column or a result set with multiple rows 
+and columns.
+
+select col1,col2 from tab1 where 
+col3=(select col4 from tab2 where condition);
+
+
+
+select col1,col2 from tab1 where 
+col3 in(select col4 from tab2 where condition);
+
+coorelated subquery:
+select col1,col2 from tab1 t1 where col3>(select avg(col3) from tab1 t2 
+where t2.category=t1.category);
+
+
+1.Retrieve employees who work in the 'IT department'.
+
+
+select ename from emp where deptno=
+(select deptno from dept where dname='RESEARCH');
+
+
+2.Retrieve employee who work in the RESEARCH or SALES department?
+
+ select ename from emp where deptno in (select deptno from dept where dname in('RESEARCH','SALES')); 
+
+3.Find employees whose salary is above the the average salary
+  in their respective departments?
+  
+  select ename from emp e where sal > 
+  (select avg(sal) from emp where deptno=e.deptno));
+
+4.Retrieve department names along with the total no.of employees in each 
+  department?
+  
+  select dname,(select count(*) from emp where deptno=dept.deptno)as num_employees from dept;
+
+
+
+
+
+select ename from emp where deptno=(select deptno from dept where dname='RESEARCH');
+select ename from emp where deptno in (select deptno from dept where dname in('RESEARCH','SALES')); 
+select ename from emp e where sal > (select avg(sal) from emp where deptno=e.deptno);
+select dname,(select count(*) from emp where deptno=dept.deptno)as num_employees from dept;
+
+
+java:
+`````
+
+class Welcome
+{
+public static void main(String[] args)
+{
+ System.out.println("Welcome");
+ }
+ }
+ ------------------------
+public class DataTypesDemo {
+	
+	public static void main(String[] args) {
+		
+	 byte  b = 127;
+	 char c = 'a';
+	 boolean bl = true;
+	 float f = 4.5f;
+	 double d = 5.6;
+	 String s = "rama";
+	 
+	 System.out.println(b);
+	 System.out.println(c);
+	 System.out.println(bl);
+	 System.out.println(f);
+	 System.out.println(d);
+	 System.out.println(s);
+		
+	}
+
+}
+
+
+class is a collection of variables and methods 
+
+how to declare the variables using datatypes .
+
+method:
+`````````
+method is the place where we are writing the logic. 
+
+
+[accessmodifier] <returntype> <methodname>([if any parameters])
+{
+
+   //logic 
+}
+
+void : it is a return type means what it doesn't return any value. 
+
+void sum()
+{
+System.out.println("sum");
+}
+
+void sum(int x, int y)
+{
+System.out.println(x+y);
+}
+
+int getAge()
+{
+  return 36; 
+}
+note:return type and return value must be compatible with each other.
+
+int getSum(int x, int y)
+{
+  return x+y;
+}
+
+finally we are keeping these variables and methods inside a class. 
+class is a collection of 
+   -variables 
+   & methods 
+   
+   
+shall we define one class name as Student contains some properties like 
+stid,stname,staddress and print their details?
+
+
+class Student{
+
+ //variables initialization  
+  int stid = 100;
+  String stname= "anushka";
+  String staddress = "bnglr";
+  
+ //display these details 
+ 
+  public void displayStudentDetails()
+  {
+     System.out.println("student id is:" + stid);
+	 System.out.println("student name is:" + stname);
+	 System.out.println("Student address is: " + staddress);
+  }
+
+
+}
+-------------------------------------------------
+
+class Student {
+
+	// variables initialization
+	int stid = 100;
+	String stname = "anushka";
+	String staddress = "bnglr";
+
+	// display these details
+
+	public void displayStudentDetails() {
+		System.out.println("student id is:" + stid);
+		System.out.println("student name is:" + stname);
+		System.out.println("Student address is: " + staddress);
+	}
+
+	public static void main(String[] args) {
+      
+		
+		//create the object for Student class
+		
+		 Student obj = new Student();
+		 
+		//call the dispalyStudentDetails()
+		
+		obj.displayStudentDetails();
+	}
+
+}
+
+
+primtive to wrapper class(object type) ->valueOf()
+Wrapper class(Objectype) -> primitive type -> intValue()
+
+
+
+from instance area, if we want to access instance properties how can 
+we access?
+directly we can access
+
+
+from any area means either instance area or static area if we want 
+to access static properties how can we access?
+
+  using class name or directly or object name
+  
+from static area if we want to access instance varaibles how can we 
+access?
+
+ using object name 
+ 
+ 
+
+public class Test2 {
+	
+	int x = 100;//instance variable
+	static int y = 20;//class level variable or static variable
+	
+	void display()
+	{
+		//instance area
+		System.out.println(x);
+		System.out.println(Test2.y);
+		System.out.println(y);
+		
+	}
+	
+	void sum() {
+		
+		//local variables
+		int p=100,q=200;
+		System.out.println("sum is: " + (p+q));
+		
+	}
+	
+	/*
+	 * void operation() 
+	 * { System.out.println(p);
+	 *  System.out.println(q); 
+	 *  }
+	 */
+	
+	public static void main(String[] args) {
+		
+		//static area
+		
+		Test2 obj = new Test2();
+		System.out.println(obj.x);
+		System.out.println(y);
+		
+	}
+
+}
+
+unary operators:
+``````````````````
+
+public class Test3 {
+	
+	public static void main(String[] args) {
+		
+		
+		int x = 100;
+		
+		System.out.println(x++);//post increment operator-100 
+	
+	    System.out.println(x);//101
+	    
+	    System.out.println(++x);//pre increment operator - 102
+	    System.out.println(x);
+	    
+	    System.out.println(x--);//102
+	    
+	    System.out.println(x);//101
+	    
+	    System.out.println(--x);//100
+	    System.out.println(x);//100
+	}
+
+}
+
+operators
+datatypes
+control statements
+variables
+methdos
+architecture
+
+
+public class Test3 {
+	
+	public static void main(String[] args) {
+		
+		
+		/*int meal = 5;
+		int tip = 2;
+		int total = meal + (meal>6 ? ++tip : tip);
+		System.out.println(tip);
+		System.out.println(total);*/
+		
+		/* x = 10, y = 5;
+		boolean w = true, z = false;
+		x = w ? y++ : y--;
+		w = !z;
+	
+		System.out.print((x+y)+(w ? 5 : 10));*/
+	
+    /*for(int i=1;i<=10;i++) {
+		
+    	if(i%2==0)
+    	{
+    		System.out.println(i);
+    	}
+    }*/
+		/*int i=1;
+		while(i<=10)
+		{
+			if(i%2!=0)
+				System.out.println(i);
+			i++;
+		}*/
+		/*int i=1;
+		do {
+			System.out.println(i);
+			i++;
+		} 
+		while (i>10);*/
+		
+		/*int singer = 0;
+		while (singer) 
+		System.out.println(singer++);*/
+		
+		/*
+		 * do { int count = 0; do { count++; } while (count < 2); break; } while (true);
+		 * 
+		 * System.out.println(count);
+		 */
+		
+		/*
+		 * int i = 0; for(i = 0; i < 10; i++){break; } System.out.println(i);
+		 */
+		
+		/*
+		 * int i = 0; for (System.out.print("HI"); i < 1; i++)
+		 * System.out.print(" Hexaware");
+		 * 
+		 */
+		
+	}
+
+}
+
+without constructor :
+
+
+public class Test4 {
+	
+	int x;
+	String y;
+	
+	
+	
+	public void setValues()
+	{
+		//initialization logic 
+		x=100;
+		y="Rama";
+	}
+	
+	public void display()
+	{
+		System.out.println("student id is: " + x);
+		System.out.println("student name is : " + y);
+	}
+	
+	public static void main(String[] args) {
+		//static area
+		//create the object for class 
+		Test4 obj= new Test4();
+		
+		//calling setValues
+		obj.setValues();
+		//calling display()
+		obj.display();
+		
+	}
+	
+
+}
+
+example:
+````````
+
+public class Test4 {
+	
+	int x;
+	String y;
+	//constructor 
+	public Test4()
+	{
+		//initialization logic
+		x=100;
+		y="rk";
+	}
+	
+	
+	
+	public void display()
+	{
+		System.out.println("student id is: " + x);
+		System.out.println("student name is : " + y);
+	}
+	
+	public static void main(String[] args) {
+		//static area
+		//create the object for class 
+		Test4 obj= new Test4();
+		
+		
+		//calling display()
+		obj.display();
+		
+	}
+	
+
+}
+
+
+types of constructor:
+
+  1.default constructor -constructor which doesn't takes any parameters
+  2.parameterized constructor -constructor which takes parameters 
+  
+  
+  
+  
+ if you are note defining any constructor(s) in a class, java compiler 
+will generate one default constructor automatically  known as 
+system defined default constructor .
+
+purpose: it will assign the default values 
+for every datatype there is a default value
+for the integer category -> 0
+for the float category - 0.0
+for the character category - single space
+for the boolean category - false 
+
+  
+example on parameterized constructor;
+````````````````````````````````````
+
+public class Test4 {
+	//class level variables 
+	int x;
+	String y;
+	
+	//parameterized constructor 
+    public Test4(int x, String y) {
+    	
+    	this.x=x;
+    	this.y=y;
+    }
+   
+	public void display()
+	{
+		System.out.println("student id is: " + x);
+		System.out.println("student name is : " + y);
+	}
+	
+	public static void main(String[] args) {
+		//static area
+		//create the object for class 
+		Test4 obj= new Test4(100,"rk");
+		
+		
+		//calling display()
+		obj.display();
+		
+	}
+	
+
+}
+
+can't we define both in a single class?
+
+yes 
+
+try to define both default and parameterized constructor ?
+
+
+this:
+this is the java reserved keyword and we are using in follwing two cases
+
+1.constructor chaining(refer this) and do one program 
+2.to differentiate class level varaibles and method level parameters when 
+both are same .
+
+we have 4 oops principles 
+
+ inheritance 
+ polymorphism 
+ abstraction 
+ encapsulation 
+ 
+
+if you really want to compare any objects reference based we should use 
+== operator
+
+
+
+inheritance:
+ 
+   inheritance is the process of taking the properties from one class 
+   to another class. 
+   
+   usage: reusability 
+   
+   using extends keyword we can practically implement inheritance. 
+   
+note:
+when we apply the inheritance concept we should create the object 
+for child class only not parent class (not recommended)
+
+ 
+encapsulation:
+`````````````
+encapsulation is the process of wrapping up of variables and methods 
+
+data hiding 
+security 
+
+because to make a class as an encapsulated class, we have to follow 
+some rules
+
+   every variable should be declared as private 
+   but for every variable we should maintain public setter and getter methods
+   
+   setter method -> to set the values into an object
+   getter method -> to get the values from an object 
+   
+   
+Employee.java:
+``````````````
+//encapsulated class
+public class Employee {
+	//private variables
+	private int empid;
+	private String empname;
+	
+	//defining public setters and getter methods
+	public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+	public String getEmpname() {
+		return empname;
+	}
+	public void setEmpname(String empname) {
+		this.empname = empname;
+	}
+	
+	
+}
+
+Test6.java:
+```````````
+//execution logic class
+public class Test6 {
+	
+	public static void main(String[] args) {
+		
+		Employee emp = new Employee();
+		
+		emp.setEmpid(100);
+		emp.setEmpname("rk");
+		
+		System.out.println("employee id is: " + emp.getEmpid());
+		System.out.println("employee name is:" + emp.getEmpname());
+	}
+
+}
+
+polymorphism:
+`````````````````
+
+method overloading:
+
+
+public class Test7 {
+	public void sum(int a, int b)
+	{
+		System.out.println(a+b);
+	}
+
+	public void sum(double a, double b)
+	{
+		System.out.println(a+b);
+	}
+	
+	public static void main(String[] args) {
+		
+		Test7 obj = new Test7();
+		obj.sum(5, 6);
+		obj.sum(6.7,8.9);
+			
+	}
+}
+
+method overriding:
+````````````````````
+Parent.java:
+```````````
+
+public class Parent {
+
+	//overridden method
+	public void sum(int x, int y)
+	{
+		System.out.println("sum is: " +(x+y));
+	}
+}
+
+Child.java:
+``````````
+
+public class Child extends Parent {
+
+	//overriding method
+	public void sum(int x, int y) {
+		
+		System.out.println("sub is: " +(x-y));
+	}
+	
+}
+
+Test8.java:
+````````````
+
+public  class Test8 {
+	
+	public static void main(String[] args) {
+		
+		/*Child obj = new Child();
+		obj.sum(6, 5);*/
+		
+		/*Parent obj = new Parent();
+		obj.sum(6, 5);*/
+		//upcasting
+		Parent obj = new Child();
+		obj.sum(6, 5);
+		
+		
+		
+		
+	}
+
+}
+
+
+
+collection framework :
+
+arrays concept 
+
+->using single variable, we can store multiple values. 
+always inside array , data gets stored based on index. 
+if size is n, maximum index is n-1
+
+ int x[]={10,20,30};
+ x[0]
+ x[1]
+ x[2]
+ 
+ 
+ 
+ in arrays, 
+ we have to write the logic manually for every simple operation means 
+ arrays don't have any ready made methods
+ 
+ array size is fixed , you can't increae or decrease the size of the array. 
+ 
+ arrays are not folowing proper datastructure. 
+ 
+ arrays supports only homogenious data.
+ 
+ 
+ collection framework :
+ 
+  interfaces/ classes 
+     -java.util package.
+	 
+	 
+ cfw:
+    using single variable, we can store multiple values of multiple types 
+	also. 
+	it supports both homogenious and heterogenous objects
+	
+	memory size is not fixed, we can increae or decrease at runtime 
+	
+	cfw contains mostly readymade methods 
+	
+	cfw follows very good stnadard ds.
+	
+	
+        Collection
+
+ List
+           Set
+                              Queue
+           SortedSet
+   
+ 
+adding the object
+removing the object .. . 
+
+For the Collection, we don't have any direct implementation class 
+
+for the sub interfaces like List, Set... we have implementation classes.
+
+List
+    extends Collection 
+	
+   ArrayList
+   Linkedlist
+   
+   class ArrayList implements List extends Collection 
+   {
+   }
+   List:
+   
+    it accepts both homogenious and heterogenous objects
+	insertion order is prserved
+	null insertion is also possible 
+	duplicates are allowed. 
+	     
+		   ArrayList
+		   LinkedList 
+		   
+	
+	Set:
+	 it accepts both homogenious and heterogenous objects
+	 insertion order we can't predict
+	 null insertion is possible but only for one time 
+	 duplicates are not allowed. 
+	 
+	       HashSet
+		   LinkedHashSet
+		   
+		   
+example:
+package com.hexaware.cfw;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for ArrayList
+	
+     List l = new ArrayList();
+     l.add(100);
+     l.add("rama");
+     l.add(100);
+     l.add(9.8);
+     l.add(null);
+     System.out.println(l);
+     l.remove(Integer.valueOf(100));
+     System.out.println(l);//[rama, 100, 9.8, null]
+     l.remove(2);
+     System.out.println(l);//[rama, 100, null]
+     l.add(0, Integer.valueOf(100));
+     System.out.println(l);//[100, rama, 100, null]
+
+     System.out.println(l.size());
+     
+     System.out.println(l.contains("krishna"));
+     
+     l.clear();
+     System.out.println(l);
+      
+     
+}
+}
+
+	 
+	 example:
+	 
+	 package com.hexaware.cfw;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for ArrayList
+	
+     List l = new ArrayList();
+     l.add(new Book(100,"java"));
+     l.add(new Book(101,"spring"));
+     l.add(new Book(102,"sql"));
+     
+     //apply foreach method 
+     
+     for(Object o:l) {
+    	 System.out.println(o);
+     }
+     
+}
+}
+
+Book.java:
+```````````
+package com.hexaware.cfw;
+
+public class Book {
+	
+	private int bookId;
+	private String bookName;
+	public int getBookId() {
+		return bookId;
+	}
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
+	}
+	public String getBookName() {
+		return bookName;
+	}
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+	public Book(int bookId, String bookName) {
+		super();
+		this.bookId = bookId;
+		this.bookName = bookName;
+	}
+	
+	
+    public String toString() {
+    	return bookId + " " + bookName;
+    }
+}
+
+without generics:
+
+package com.hexaware.cfw;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for ArrayList
+	
+     List l = new ArrayList();
+     for(int i=1;i<=10;i++) {
+    	 l.add(i);
+     }
+    l.add("rama");
+   for(Object o:l)
+   {
+	   //convert Object type to Integer type
+	   Integer i= (Integer)o;
+	   if(i%2==0)
+		   System.out.println(i);
+   }
+}
+}
+
+
+in case of generics what are the benefits
+
+1.we will get compile time errors which are far better than runtime errors 
+
+2.type casting is not required. 
+
+with generics:
+``````````````
+package com.hexaware.cfw;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for ArrayList
+	
+     List<Integer> l = new ArrayList<Integer>();
+     for(int i=1;i<=10;i++) {
+    	 l.add(i);
+     }
+    
+   for(Integer i:l)
+   {
+	   
+	   if(i%2==0)
+		   System.out.println(i);
+   }
+}
+}
+
+with generics along with customized objects:
+
+package com.hexaware.cfw;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Test1 {
+	
+public static void main(String[] args) {
+	
+	//create the object for ArrayList
+	
+     List<Book> l = new ArrayList<Book>();
+     l.add(new Book(100,"java"));
+     l.add(new Book(101,"sql"));
+     l.add(new Book(102,"spring"));
+     
+    
+   for(Book b:l)
+   {
+	   
+	   if(b.getBookName().startsWith("s"))
+		   System.out.println(b.getBookName());
+   }
+}
+}
+
+LinkedList
+
+but the differenece between ArrayList and LinkedList is 
+
+ ->if our frequent operations is modification like insertion/deletion/updation 
+ then we will go for LinkedList because internally it is using 
+ double linked list algorithm 
+ 
+ ->if our frequent operation is selection /retrieval then we should 
+ use ArrayList
+ 
+ 
+ Set -HashSet,LinkedHashSet
+ SortedSet - TreeSet
+ Queue -...
+ 
+ 
+ Map - HashMap,LinkedHashMap
+ SortedMap - TreeMap 
+ Comparator
+ Comparable 
+ 
