@@ -2518,6 +2518,134 @@ public class Test1 {
 
  */
 
+throws:
+```````
+throws is a java reserved keyword which gives an indicatin to the 
+calling function to keep the called function under try and catch blocks 
 
-throws
-throw
+Test2.java:
+````````````
+package com.hexaware.exceptionhandling;
+//called program
+public class Test2 {
+	//called function 
+	public void division() throws ArithmeticException
+	{
+		int z = 100/0;
+		System.out.println("divsion is:" + z);
+	}
+
+}
+
+Test3.java:
+````````````
+package com.hexaware.exceptionhandling;
+
+//calling program
+public class Test3  {
+	//calling function 
+	public static void main(String[] args) {
+		
+		Test2 obj = new Test2();
+		try {
+		obj.division();
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("something wrong in division method");
+			
+		}
+		
+		System.out.println("Rest statements gets executed");
+		
+	}
+
+}
+
+
+throw:
+``````
+throw is a java reserved keyword 
+
+purpose: to throw an exception explictly 
+
+where we need to use?
+
+ to implement user defined/custom exception.
+ 
+syntax:
+
+  throw new <exceptionclassname>();
+  
+  ecommerce webstie
+  
+  checking product 
+  
+  based on the product weight
+  
+  
+  if product weight  is > 100 (product is valid)
+  
+  else throw new InvalidProductException();
+  
+Test4.java:
+```````````
+package com.hexaware.exceptionhandling;
+//business logic class 
+public class Test4 {
+	
+	public void checkProduct(int weight)
+	{
+		if(weight>100)
+		{
+			System.out.println("product is valid"); 
+		}
+		else
+		{
+			try {
+			throw new InvalidProductException("check product weight");
+			}
+			catch(InvalidProductException ip)
+			{
+				System.out.println(ip);
+			}
+	
+	}
+	}
+
+}
+
+
+Test5.java:
+```````````
+package com.hexaware.exceptionhandling;
+
+import java.util.Scanner;
+
+public class Test5 {
+
+	public static void main(String[] args) {
+		
+		Test4 obj = new Test4();
+		Scanner s = new Scanner(System.in);
+		System.out.println("enter product weight");
+		
+		int weight = s.nextInt();
+		obj.checkProduct(weight);
+	}
+}
+
+
+InvalidProductException.java:
+``````````````````````````
+package com.hexaware.exceptionhandling;
+//exception class 
+public class InvalidProductException extends Exception {
+
+	public InvalidProductException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+}
+
