@@ -2297,3 +2297,227 @@ now i want in descending order based on bookid, or i want the data
 based on bookname in reverse order?
 
 Comparator
+
+Comparable is meant for natural sorting order
+
+  java.lang 
+  
+  compareTo()
+  
+Comparator is meant for custom order
+
+  java.util 
+  compare()
+     ->compareTo() 
+	 
+Map:
+Map is the predefined interface available in java.util package 
+
+purpose: to organize the data in the form of (key,value) pair
+
+
+key ->one object
+value -> one object 
+
+ ->HashMap
+ ->LinkedHashMap
+
+properties:
+
+1.duplicate key objects are not allowed but duplicate value objects 
+  are allowed 
+  
+2.insertion order is not preserved
+3.allows both homogenious and heterogenious objects
+4.null insertion is also possible.
+  using put(.,.) we can add the key, value objects to the Map object
+  
+ example:
+ package com.hexaware.cfw;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Test2 {
+	public static void main(String[] args) {
+		Map m= new HashMap();
+		m.put(100, "rama");
+		m.put(101, "hexware");
+		m.put(null, null);
+		m.put(100, "rk");
+		m.put(102, "hexware");
+		m.put("techm", 103);
+		System.out.println(m);
+		
+		
+	}
+
+}
+
+
+------------------------------
+package com.hexaware.cfw;
+
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class Test2 {
+	public static void main(String[] args) {
+		Map<Integer,String> m= new LinkedHashMap();
+		m.put(100, "rama");
+		m.put(101, "hexware");
+		m.put(null, null);
+		m.put(100, "rk");
+		m.put(102, "hexware");
+		//m.put("techm", 103);
+		System.out.println(m);
+		Set s = m.entrySet();
+		System.out.println(s);
+		
+		Iterator itr = s.iterator();
+		while(itr.hasNext())
+		{
+			System.out.println(itr.next());
+		}
+		
+		System.out.println("==========");
+		
+		for(Map.Entry m1 :m.entrySet()) {
+			System.out.println(m1.getKey() + " " + m1.getValue());
+		}
+		
+	}
+
+}
+
+
+
+
+
+exception handling:
+
+  exception -> runtime error 
+  
+  during execution of the program 
+  we will get errors because of invalid input. 
+  
+  enter first no: 100
+  enter second no: 0
+  java.lang.ArithmeticException: /by zero 
+  
+  
+  ...
+  ..  int x = 100/0;
+  ...
+  ...
+  2000 lines of code 
+
+if we get the exception, we havve two drawbacks
+
+1.control terminated abnormally because of that remaining statements 
+  will not be executed 
+  
+2. when we get the exception, end user will get system error messages 
+which are not understandable by end user.
+
+
+we have to handle the exceptions
+
+to handle these exceptions, 
+we have 5 java reserved keywords 
+
+1.try
+2.catch
+3.finally
+4.throws
+5.throw
+
+try:
+using try block we can keep problematic statements 
+
+try{
+
+  //problematic statements
+  
+}
+
+
+catch:
+it is a block which is used to catch the exception and provides user 
+friendly message. 
+
+ syntax: 
+      catch(<exceptionclassname> <referencvarname>)
+	  {
+	    //user friendly message
+
+      }
+	  
+for a single try block , how many catch blocks we can define?
+as many as we want based on the requirement.
+
+but at a time, single catch block gets executed based on the invalid input. 
+
+finally:
+`````````
+finally block is used to keep the logic which is releated to  release the resources .
+
+->closing related logic 
+
+database connection closing logic 
+file closing logic 
+etc.. 
+
+we won't get any dataleakage issues
+
+since finally block logic gets exceuted anytime whether your program is 
+exception free or not?
+
+package com.hexaware.exceptionhandling;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Test1 {
+	
+	public static void main(String[] args) {
+		try {
+		Scanner s= new Scanner(System.in);
+		System.out.println("enter first no:");
+		int fno = s.nextInt();
+		
+		System.out.println("enter second no:");
+		int sno = s.nextInt();
+		
+		int division = fno/sno;
+		System.out.println("division of given two nos is : " + division);
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("don't enter zero as denominator");
+		}
+		catch(InputMismatchException ime)
+		{
+			System.out.println("please pass only numeric values");
+		}
+		finally {
+			System.out.println("finally block executed always");
+		}
+		System.out.println("rest statements");
+		System.out.println("rest statements");
+		System.out.println("rest statements");
+		
+	}
+
+}
+/*
+ * Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at com.hexaware.exceptionhandling.Test1.main(Test1.java:16)
+
+ */
+
+
+throws
+throw
