@@ -2649,3 +2649,207 @@ public class InvalidProductException extends Exception {
 
 }
 
+jdbc:
+jdbc is the technology given by sunmicrosystem 
+and implementations are provided by db vendors 
+
+  specification -> it just provides rules and regulations 
+  how we can connect with database.
+  
+  oracle
+  mysql
+  ingress
+  sybase 
+  rdbms product 
+  in the form of jar files 
+  
+  interfaces 
+  implementation classes are provided by different db vendors 
+  
+  mysql ->mysqlconnector.jar
+  oracle ->ojdbc6.jar
+  
+  
+  purpose: 
+    
+	  to perform db operatons from java environment 
+	  
+	  from the db environment
+	  
+	  using jdbc, we can connect with db from java and we can 
+	  perfrom db operations also from java environment. 
+	  
+steps to follow to write the jdbc program:
+
+1.load the driver class 
+in jdbc, we have different types of drivers are there those are varying 
+from type1 .. type4 driver. 
+mostly people are using type4 driver only for any database. 
+
+   Class.forName("driverclassname");
+   
+mysql
+oracle
+ type 4 driver for oracle  ->oracle.jdbc.driver.OracleDriver
+ type 4 driver for mysql -> com.mysql.cj.jdbc.Driver
+ 
+ we should add orresponding jar file to your buildpath of your project.
+ 
+ package com.hexaware.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Test1 {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	
+	//loading the driver class
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+    System.out.println("driver class loaded");
+    
+    
+    //get the connection 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hexaware", "root", "training@123");
+    System.out.println("i got the connection ");
+    
+    //create the object for Statement 
+    Statement st = con.createStatement();
+    
+    String query = "insert into student values(101,'anushka')";
+    
+    int x =  st.executeUpdate(query);
+  
+    System.out.println(x + "row(s) inserted");
+    
+    //close the connection 
+    con.close();
+}
+}
+
+
+check for update and delete queries also in the same way 
+
+note:
+to process the non select queries we are using executeUpdate() on top 
+of Statement object.
+
+to process select queries we are using executeQuery() on top of 
+Statement object 
+
+executeUpdate() -return type is integer
+
+executeQuery() - ResultSet 
+
+ResultSet contains different getter methods based on the column type
+we have to use those getter methdos 
+
+ column index always starts from 1
+ 
+example for processing select queries:
+``````````````````````````````````````
+package com.hexaware.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Test1 {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	
+	//loading the driver class
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+    System.out.println("driver class loaded");
+    
+    
+    //get the connection 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hexaware", "root", "training@123");
+    System.out.println("i got the connection ");
+    
+    //create the object for Statement 
+    Statement st = con.createStatement();
+    
+    String query = "select * from student";
+    ResultSet rs =  st.executeQuery(query);
+  
+    while(rs.next()){
+	
+	  System.out.println(rs.getInt(1) + " " + rs.getString(2));
+	}
+    
+    //close the connection 
+    con.close();
+}
+}
+
+-----------------------
+ 
+ static query is a query that itself contains data is known 
+ as static query
+  ex: insert into student values(100,'rk');
+  
+ dynamic query is a query that itself doesn't contains any data 
+ ex: insert into student values(?,?);
+ ? ->positional parameters 
+ 
+ 
+ to process the static queries we have to create the object for 
+ Statement interface
+ 
+ 
+ to process the dynamic queries we have to create the object for 
+ PreparedStatement interface. 
+ 
+ package com.hexaware.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Test1 {
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	
+	//loading the driver class
+	
+	Class.forName("com.mysql.cj.jdbc.Driver");
+    System.out.println("driver class loaded");
+    
+    
+    //get the connection 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hexaware", "root", "training@123");
+    System.out.println("i got the connection ");
+    String query = "insert into student values(?,?)";
+    //create the object for PreparedStatement 
+    PreparedStatement ps = con.prepareStatement(query);
+    
+    Scanner s= new Scanner(System.in);
+    
+    System.out.println("enter student id:");
+    int stid = s.nextInt();
+    System.out.println("enter student name:");
+    String stname=s.next();
+    
+    ps.setInt(1, stid);
+    ps.setString(2, stname);
+    
+    int x = ps.executeUpdate();
+    System.out.println(x + "row(s) inserted");
+    
+    //close the connection 
+    con.close();
+}
+}
+how to process static queries ->Statement 
+
+how to process dynamic queries -> PreparedStatement
+
+how to process non-select queries -> executeUpdate()-int
+
+how to process select queries -> executeQuery()-ResultSet
+
