@@ -2933,3 +2933,170 @@ jdbc.url=jdbc:mysql://localhost:3306/hexaware
 jdbc.username=root
 jdbc.password=training@123
 jdbc.drivername=com.mysql.cj.jdbc.Driver
+
+
+build automation tools 
+
+  ->ant
+  ->maven, or gradle 
+  
+maven:
+
+  it is a automation build tool 
+  build:
+    compiling the source code 
+	running the source code
+	compiling the test case code and run 
+	packaging the application as jar or war file 
+	
+automation 
+dependency management 
+scalability
+error fixing 
+less time 
+
+junit:
+ 
+   what is junit:
+     junit is a unit testing framework 
+	 
+as a developer -> 
+
+  move the code form dev environment to qa environment 
+  testers 
+  qa to production 
+  
+
+current version of junit is junit5
+
+package com.hexaware;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+class TestCalculator {
+    static Calculator cal;
+	
+    @BeforeAll
+	public static void setUp()
+	{
+		cal = new Calculator();
+	}
+	@Test
+	void testingSum() {
+		
+		//when
+		int result = cal.sum(5, 4);
+		//then
+		assertEquals(9, result);
+		
+	}
+	
+	@Test
+	void testingMul()
+	{
+		
+		int result= cal.mul(5, 6);
+		assertEquals(30, result);
+	}
+	
+	@AfterAll
+	public static void cleanUp()
+	{
+		cal = null;
+	}
+	
+
+}
+
+@BeforeEach
+@AfterEach
+
+example:
+````````
+package com.hexaware;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest {
+
+	@BeforeAll
+	public static void setUp() {
+
+		System.out.println("excecuted once before all test case methods");
+	}
+
+	@BeforeEach
+	public void xyz() {
+		System.out.println("executed before every test case method");
+	}
+
+	@Test
+	public void test1() {
+
+		System.out.println("test1 test method");
+
+	}
+
+	@Test
+	public void test2() {
+
+		System.out.println("test2 test method");
+
+
+	}
+
+	@AfterAll
+	public static void tearDown() {
+		System.out.println("excecuted once aftter all test case methods");
+	}
+}
+
+pom.xml:
+``````
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.10.1</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.10.1</version>
+    <scope>test</scope>
+</dependency>
+
+
+
+
+@Test
+@BeforeEach
+@AfterEach
+@BeforeAll
+@AfterAll
+@ParameterizedTest
+@ValueSource
+@CsvSource
+@CsvFileSource
+@RepeatedTest
+@Order
+@DisplayName
+@Disabled
+.....
+
+
+
+
